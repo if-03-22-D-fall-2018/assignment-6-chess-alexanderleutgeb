@@ -27,11 +27,11 @@
    struct ChessPiece piece;
  };
 
- typedef ChessSquare ChessBoard[8][8];
+ typedef struct ChessSquare ChessBoard[8][8];
  typedef int Rank;
  typedef unsigned char File;
 
- bool setup_chess_board(File file, Rank rank);
+ bool setup_chess_board(ChessBoard chess_board);
  void init_chess_board(ChessBoard chess_board);
 
  struct ChessSquare* get_square(ChessBoard chess_board,File file,Rank rank);
@@ -39,7 +39,7 @@
 
  bool is_square_occupied(ChessBoard chess_board,File file,Rank rank);
  bool add_piece(ChessBoard chess_board,File a,Rank rank, ChessPiece black_rook);
- bool remove_piece(ChessBoard chess_board, File a, Rank rank, ChessPiece black_rook);
+ bool remove_piece(ChessBoard chess_board, File file, Rank rank);
  bool is_piece(struct ChessPiece piece, enum Color color, enum PieceType type);
 
  bool 	squares_share_file (File s1_f, Rank s1_r, File s2_f, Rank s2_r);
